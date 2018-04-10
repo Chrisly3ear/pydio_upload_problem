@@ -6,20 +6,12 @@ This is supposed to be supplemental for the forum thread at https://forum.pydio.
 
 ## Usage
 
-To run this thing with docker-compose you'll need to add two folders:
-- certs
-    - Insert all the certificates for the SSL server here
-- private_key
-    - Insert the private key for the server certificate here
-
-and you'll have to edit the "pydio.conf" file and replace the certificate paths so that it will match your filenames (lines 21, 24 and 27).
-
-Then you should be able to run this thing using `docker-compose up -d --build`
+You should be able to run this thing using `docker-compose up --build`
 
 ## Pydio Install
 
 After building and starting up you can navigate to
-https://localhost (if you're running it locally)
+http://localhost (if you're running it locally)
 and step through the Pydio install wizard.
 
 | Install Parameter | Value |
@@ -33,3 +25,7 @@ and step through the Pydio install wizard.
 ## Verify the problem
 
 Go into on of the default repositories and try to upload ANY file. You'll get an error stating the file was too big.
+
+## Notes
+
+There'll be a PHPMyAdmin instance running at port 8080 so you can explore the database. Root password is `secret_haha`

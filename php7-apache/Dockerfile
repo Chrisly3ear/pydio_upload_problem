@@ -53,13 +53,13 @@ COPY php.ini /usr/local/etc/php/
 COPY pydio.conf /etc/apache2/sites-enabled/00_pydio.conf
 
 # Certificates and Key NOT included in Github Repo!!
-COPY certs /etc/ssl/servercerts
-COPY private_key /etc/ssl/private
+# COPY certs /etc/ssl/servercerts
+# COPY private_key /etc/ssl/private
 
 
 RUN chown -R 33:33 ./
 
-EXPOSE 443
+EXPOSE 80
 
 CMD ["apache2-foreground"]
 

@@ -11,7 +11,7 @@ services:
     restart: always
     command: /bin/bash -c "mount -a; apache2-foreground"
     ports:
-      - 443:443
+      - 80:80
     links:
       - mariadb:db
     depends_on:
@@ -38,7 +38,7 @@ services:
     container_name: "pydio_pma"
     restart: always
     ports:
-      - 80:80
+      - 8080:80
     links:
       - mariadb:db
     depends_on:
