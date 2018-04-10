@@ -1,0 +1,40 @@
+version: "3"
+volumes:
+    db:
+
+services:
+  web:
+    build: 
+      context: php7-apache
+      dockerfile: Dockerfile
+    container_name: "pydio_web"
+    restart: always
+    command: /bin/bash -c "mount -a; apache2-foreground"
+    ports:
+      - 443:443
+    links:
+      - mariadb:db
+    depends_on:
+      - mariadb
+    privileged: true
+    # Mounting Network Shares requires "privileged"
+
+  mariadb:
+    build:
+      context: mariadb
+      dockerfile: Dockerfile
+    container_name: "pydio_mariadb"
+    restart: always
+    volumes:
+     - db:/var/lib/mysql
+
+  pma:
+    image: phpmyadmin/phpmyadmin:latest
+    container_name: "pydio_pma"
+    restart: always
+    ports:
+      - 80:80
+    links:
+      - mariadb:db
+    depends_on:
+      - mariadb

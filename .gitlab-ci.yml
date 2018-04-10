@@ -1,0 +1,18 @@
+stages:
+  - build
+  - deploy
+  # - backup
+
+build:
+  stage: build
+  only:
+    - master
+  script:
+    - docker-compose build --force-rm --pull
+    
+deploy:
+  stage: deploy
+  only:
+    - master
+  script:
+    - docker-compose up -d

@@ -1,0 +1,6 @@
+!pydio/*
+**/.gitignore
+!/.gitignore
+
+/pydio/data/cache
+*.pem
