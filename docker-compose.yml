@@ -25,6 +25,11 @@ services:
       dockerfile: Dockerfile
     container_name: "pydio_mariadb"
     restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=secret_haha
+      - MYSQL_DATABASE=pydio
+      - MYSQL_USER=pydio
+      - MYSQL_PASSWORD=pydio
     volumes:
      - db:/var/lib/mysql
 
