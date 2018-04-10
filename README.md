@@ -22,11 +22,13 @@ After building and starting up you can navigate to
 https://localhost (if you're running it locally)
 and step through the Pydio install wizard.
 
-DB-Type:    MySQL
-DB-Host:    mariadb
-DB:         pydio
-User:       pydio
-Password:   pydio
+| Install Parameter | Value |
+| --- | --- |
+|DB-Type:|MySQL|
+|DB-Host:   | mariadb |
+|DB:        | pydio  |
+|User:      | pydio  |
+|Password:  | pydio|
 
 ## Verify the problem
 
