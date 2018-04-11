@@ -49,15 +49,17 @@ RUN wget https://download.pydio.com/pub/core/archives/pydio-core-8.0.2.zip -O /t
     unzip /tmp/pydio.zip  -x "*/.gitignore" -d /tmp/ && \
     cp -rf /tmp/pydio-core-*/. /var/www/html/
 
-COPY php.ini /usr/local/etc/php/
-COPY pydio.conf /etc/apache2/sites-enabled/00_pydio.conf
+RUN chown -R 33:33 ./
 
 # Certificates and Key NOT included in Github Repo!!
 # COPY certs /etc/ssl/servercerts
 # COPY private_key /etc/ssl/private
 
 
-RUN chown -R 33:33 ./
+COPY php.ini /usr/local/etc/php/
+COPY pydio.conf /etc/apache2/sites-enabled/00_pydio.conf
+
+
 
 EXPOSE 80
 
